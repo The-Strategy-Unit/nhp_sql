@@ -1,0 +1,22 @@
+tretspef,specialty_description
+100,General Surgery
+101,Urology
+110,Trauma and Orthopaedics
+120,Ear Nose and Throat
+130,Ophthalmology
+140,Oral Surgery
+150,Neurosurgery
+160,Plastic Surgery
+170,Cardiothoracic Surgery
+300,General Internal Medicine
+301,Gastroenterology
+320,Cardiology
+330,Dermatology
+340,Respiratory Medicine
+400,Neurology Service
+410,Rheumatology Service
+430,Elderly Medicine Service
+502,Gynaecology Service
+Other (Medical),Other (Medical)
+Other (Surgical),Other (Surgical)
+Other,Other
