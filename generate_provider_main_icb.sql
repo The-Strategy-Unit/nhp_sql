@@ -10,27 +10,31 @@ TRUNCATE TABLE nhp_modelling.provider_main_icb;
 
 INSERT INTO nhp_modelling.provider_main_icb
 SELECT
-    PROCODE3,
+    procode3,
     icb22cdh
 FROM (
     SELECT
         c.icb22cdh,
-        i.PROCODE3,
+        procode3 = s.new_code,
         COUNT(*) n,
-        RANK () OVER (PARTITION BY i.PROCODE3 ORDER BY COUNT(*) DESC) [n_rank]
+        RANK () OVER (PARTITION BY s.new_code ORDER BY COUNT(*) DESC) [n_rank]
     FROM
         dbo.tbInpatients i
     INNER JOIN
         nhp_modelling_reference.ccg_to_icb c
         ON
             i.CCG_RESIDENCE = c.ccg
+    INNER JOIN
+        nhp_modelling.provider_successors s
+        ON
+            i.procode3 = s.old_code
     WHERE
         i.FYEAR = 201920
     AND
-        i.PROCODE3 LIKE 'R%'
+        s.new_code LIKE 'R%'
     GROUP BY
         c.icb22cdh,
-        i.PROCODE3
+        s.new_code
 ) t
 WHERE t.n_rank = 1;
 GO
