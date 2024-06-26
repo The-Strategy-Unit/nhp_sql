@@ -21,6 +21,6 @@ AND
 AND
   i.SPELDUR = 0
 AND
-  i.DISMETH IN (1, 2, 3);
+  i.DISMETH IN ('1', '2', '3');
 
 GO

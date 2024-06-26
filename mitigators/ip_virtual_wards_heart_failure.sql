@@ -13,7 +13,7 @@ FROM
 WHERE
   i.ADMIMETH LIKE '2%'
 AND
-  i.DISMETH IN (1, 2, 3)
+  i.DISMETH IN ('1', '2', '3')
 AND  
   i.ADMIAGE >= 18  
 AND

@@ -70,7 +70,7 @@ WHERE
 AND
   i.AGE BETWEEN 19 AND 120
 AND
-  i.sex = 1
+  i.sex = '1'
 AND
   EXISTS(
     SELECT 1 FROM
