@@ -61,13 +61,11 @@ SELECT
         WHEN '22' THEN 1
         ELSE NULL
     END,
-    has_procedures = CASE WHEN EXISTS (
-        SELECT 1
-        FROM   tbOutpatientsProcedures p
-        WHERE  o.attendkey = p.attendkey
-        AND    p.opcode NOT LIKE '[UYZ]%'
-        AND    o.atentype NOT LIKE '2%'
-    ) THEN 1 ELSE 0 END
+    has_procedures = CASE
+        WHEN sushrg LIKE 'WF%' THEN 0
+        WHEN sushrg LIKE 'U%' THEN 0
+        ELSE 1
+    END
 FROM
     tbOutpatients o
 INNER JOIN
