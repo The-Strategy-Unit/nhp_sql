@@ -11,7 +11,7 @@ SELECT
   sex,
   'consultant_to_consultant_referrals-' +
     IIF(is_adult = 1, 'adult', 'child') + '_' +
-    IIF(is_surgical_specialty = 1, 'non-', '') + 'surgical'
+    IIF(is_surgical_specialty = 1, '', 'non-') + 'surgical'
     [strategy],
   is_cons_cons_ref [fraction]
 FROM
